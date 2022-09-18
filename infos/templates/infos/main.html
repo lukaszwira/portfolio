@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Witaj!{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'infos/style.css'%}">
+</head>
+<body>
+<div id="content">
+    <div id="header">
+        <ul>
+            <li><a {% if request.path == "/" %}class="active"{% endif %} href="http://localhost:8000/">strona startowa</a></li>
+            <li><a {% if request.path == "/me/" %}class="active"{% endif %} href="http://localhost:8000/me/">o mnie</a></li>
+            <li><a {% if request.path == "/contact/" %}class="active"{% endif %} href="http://localhost:8000/contact">kontakt</a></li>
+        </ul>
+    </div>
+    <div id="inner-content">
+       {% block content %}
+        Witaj! <br>
+        Dowiesz się tutaj więcej o mnie
+       {% endblock %}
+    </div>
+</div>
+</body>
+</html>
